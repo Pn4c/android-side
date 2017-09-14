@@ -7,7 +7,7 @@ import android.content.Context;
  */
 
 public class Post {
-    private String deneme;
+
     private String content;
     private String title;
 
