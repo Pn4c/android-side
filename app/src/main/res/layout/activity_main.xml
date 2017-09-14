@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="#FFFFFF"
+tools:context="com.example.enes.pn4c.MainActivity"
+android:paddingLeft="16dp"
+android:paddingRight="16dp"
+android:orientation="vertical"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/ivlogo"
+        android:layout_width="329dp"
+        android:layout_height="100dp"
+        android:src="@drawable/pn4clogo"
+        android:layout_weight="0.43" />
+
+
+    <EditText
+        android:id="@+id/etEmail1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+
+         />
+
+    <EditText
+        android:id="@+id/etPassword1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPassword"
+         />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:text="Log in" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:text="SIGN UP"
+        android:id="@+id/btnSignUp"
+        android:layout_marginTop="10dp"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:id="@+id/search1"
+        android:text="searchh"
+        android:layout_marginTop="10dp"
+        />
+
+
+</LinearLayout>
+

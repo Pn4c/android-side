@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PN4C</string>
+
+    <string-array name="Genders_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Homosexual</item>
+
+    </string-array>
+
+    <string name="loginbutton">Login Page</string>
+
+
+</resources>

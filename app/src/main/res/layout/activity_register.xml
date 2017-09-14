@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context="com.example.enes.pn4c.RegisterActivity">
+
+    <Button
+        android:id="@+id/btnReturnLoginpage"
+        android:text="@string/loginbutton"
+        android:background="#000000"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="250dp"/>
+
+    <EditText
+        android:textColorHint="#060606"
+        android:id="@+id/etnewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="E-Mail"
+        android:layout_marginTop="80dp" />
+
+    <EditText
+        android:textColorHint="#060606"
+        android:id="@+id/etNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nickname"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:textColorHint="#060606"
+        android:id="@+id/etnewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/etnewRePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Re-Password"
+        android:textColorHint="#060606"
+        android:layout_marginTop="10dp"/>
+
+    <Spinner
+        android:id="@+id/GenderSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autofillHints="Gender"
+        android:background="#000000">
+
+    </Spinner>
+
+    <EditText
+        android:id="@+id/etnewAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number"
+        android:textColorHint="#060606"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnCreatenewuser"
+        android:text="Relax"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="90dp"/>
+
+
+</LinearLayout>
