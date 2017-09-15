@@ -8,12 +8,25 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MotionEvent;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.enes.pn4c.JavaClasses.Post;
 import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -21,6 +34,11 @@ public class HomeActivity extends AppCompatActivity {
     private List<Post> deneme;
 
     private Toolbar HomeToolbar;
+
+    TextView textView;
+    RequestQueue requestQueue;
+    String url_goster="http://185.16.237.199/egitim/ogrenciGoster.php";
+    ArrayList<String> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +56,12 @@ public class HomeActivity extends AppCompatActivity {
         layoutManager.scrollToPosition(0);
         recycler_view.setLayoutManager(layoutManager);
 
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+        textView = (TextView)findViewById(R.id.textView);
+        users = new ArrayList<String>();
+
+        getAllUsers();
         deneme = new ArrayList<Post>();
         deneme.add(new Post("Content","Title"));
         deneme.add(new Post("cONTEN2","title1"));
@@ -54,6 +78,16 @@ public class HomeActivity extends AppCompatActivity {
         deneme.add(new Post("cONTEN13","title12"));
         deneme.add(new Post("cONTEN14","title13"));
 
+        deneme = new ArrayList<Post>();
+
+        ArrayList<String> ses = getUsers();
+
+
+
+        for(int i=0;i<users.size();i++){
+            deneme.add(new Post(users.get(i),"title"));
+
+        }
 
         SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(deneme);
         recycler_view.setHasFixedSize(true);
@@ -81,5 +115,47 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
+    }
+
+    public void getAllUsers(){
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_goster, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONArray ogrenciler =response.getJSONArray("ogrenciler");
+
+                    for (int i=0; i<ogrenciler.length(); i++){
+                        JSONObject ogrenci = ogrenciler.getJSONObject(i);
+
+                        String ad = ogrenci.getString("ad");
+                        String soyad = ogrenci.getString("soyad");
+                        String yas = ogrenci.getString("yas");
+
+                        users.add(ad + "-" + soyad + "-" + yas);
+                        textView.append(users.get(i));
+                    }
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO Auto-generated method stub
+
+            }
+        }
+        );
+
+        requestQueue.add(jsonObjectRequest);
+
+
+    }
+
+    public ArrayList<String> getUsers(){
+        return this.users;
     }
 }

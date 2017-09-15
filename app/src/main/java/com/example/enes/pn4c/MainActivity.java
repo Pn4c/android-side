@@ -6,13 +6,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnRegister,btnLogin;
     EditText etEmail,etPassword;
+
+    Button goster;
+    TextView textView;
 
 
     @Override
@@ -55,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
 
 
 
