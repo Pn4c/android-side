@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.example.enes.pn4c.R;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Enes on 9/7/2017.
@@ -24,7 +26,6 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         public TextView title;
         public TextView nickName;
         public CardView card_view;
-
 
         public ViewHolder(View view) {
             super(view);
@@ -51,18 +52,30 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         return view_holder;
     }
 
-
     @Override
     public void onBindViewHolder(SimpleRecyclerAdapter.ViewHolder holder, int position) {
+
+        Map<String,String> colors = new HashMap<>();
+        colors.put("Successful","#8150BB");
+        colors.put("Lonely","#CDC9C7");
+        colors.put("Dead","#474741");
+        colors.put("Excited","#FFB036");
+        colors.put("Sad","#656990");
+        colors.put("Happy","#FAFF52");
 
         holder.title.setText(tryview.get(position).getTitle());
         holder.content.setText(tryview.get(position).getContent());
         holder.nickName.setText(tryview.get(position).getNickName());
 
-        holder.title.setBackgroundColor(Color.parseColor("#8150BB"));
+        //Title renkleri ayarlama
+        try {
+            holder.title.setBackgroundColor(Color.parseColor(colors.get(tryview.get(position).getFeeling())));
+        }
+        catch (NullPointerException e){
+
+        }
 
     }
-
 
     @Override
     public int getItemCount() {
