@@ -10,21 +10,6 @@ android:paddingRight="16dp"
 android:orientation="vertical"
     android:weightSum="1">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.43"
-        android:text="kayıtlar"
-        android:textColor="@color/colorPrimaryDark" />
-
-    <Button
-        android:id="@+id/goster"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.43"
-        android:text="Button" />
-
     <ImageView
         android:id="@+id/ivlogo"
         android:layout_width="329dp"

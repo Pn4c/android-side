@@ -1,5 +1,6 @@
 package com.example.enes.pn4c;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -24,6 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,11 +37,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private Toolbar HomeToolbar;
 
-    private List<Post> deneme = new ArrayList<>();
-    TextView textView;
+    private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
-    String url_goster="http://10.0.2.2/egitim/ogrenciGoster.php";
-    ArrayList<String> users = new ArrayList<String>();
+    String url_goster="http://185.16.237.199/egitim/ogrenciGoster.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,6 @@ public class HomeActivity extends AppCompatActivity {
 
         HomeToolbar = (Toolbar)findViewById(R.id.homeToolbar);
         setSupportActionBar(HomeToolbar);
-
-
 
         recycler_view = (RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -82,11 +81,14 @@ public class HomeActivity extends AppCompatActivity {
 
                         String title = ogrenci.getString("Title");
                         String content = ogrenci.getString("Content");
+                        String nickName = ogrenci.getString("UserNickName");
+                        String feeling = ogrenci.getString("Feeling");
 
-                        getDeneme().add(new Post(content, title));
+                        getPosts().add(new Post(content, title, nickName, feeling));
                     }
 
-                    SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(deneme);
+
+                    SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(Posts);
                     recycler_view.setHasFixedSize(true);
                     recycler_view.setAdapter(adapter_items);
                     recycler_view.setItemAnimator(new DefaultItemAnimator());
@@ -125,6 +127,6 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private List<Post> getDeneme(){return deneme;}
+    private List<Post> getPosts(){return Posts;}
 
 }

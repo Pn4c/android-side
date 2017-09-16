@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnRegister,btnLogin;
     EditText etEmail,etPassword;
 
-    Button goster;
-    TextView textView;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

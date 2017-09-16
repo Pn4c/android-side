@@ -1,5 +1,6 @@
 package com.example.enes.pn4c.JavaClasses;
 
+import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
         public TextView content;
         public TextView title;
+        public TextView nickName;
         public CardView card_view;
 
 
@@ -30,6 +32,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
             card_view = view.findViewById(R.id.card_view);
             content = view.findViewById(R.id.content);
             title = view.findViewById(R.id.title);
+            nickName = view.findViewById(R.id.nickName);
 
         }
     }
@@ -54,6 +57,9 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
         holder.title.setText(tryview.get(position).getTitle());
         holder.content.setText(tryview.get(position).getContent());
+        holder.nickName.setText(tryview.get(position).getNickName());
+
+        holder.title.setBackgroundColor(Color.parseColor("#8150BB"));
 
     }
 
