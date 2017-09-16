@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.TextView;
@@ -23,7 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,14 +31,14 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     private RecyclerView recycler_view;
-    private List<Post> deneme;
 
     private Toolbar HomeToolbar;
 
+    private List<Post> deneme = new ArrayList<>();
     TextView textView;
     RequestQueue requestQueue;
-    String url_goster="http://185.16.237.199/egitim/ogrenciGoster.php";
-    ArrayList<String> users;
+    String url_goster="http://10.0.2.2/egitim/ogrenciGoster.php";
+    ArrayList<String> users = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,55 +58,7 @@ public class HomeActivity extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-        textView = (TextView)findViewById(R.id.textView);
-        users = new ArrayList<String>();
-
-        getAllUsers();
-        deneme = new ArrayList<Post>();
-        deneme.add(new Post("Content","Title"));
-        deneme.add(new Post("cONTEN2","title1"));
-        deneme.add(new Post("cONTEN3","title2"));
-        deneme.add(new Post("cONTEN4","title3"));
-        deneme.add(new Post("cONTEN5","title4"));
-        deneme.add(new Post("cONTEN6","title5"));
-        deneme.add(new Post("cONTEN7","title6"));
-        deneme.add(new Post("cONTEN8","title7"));
-        deneme.add(new Post("cONTEN9","title8"));
-        deneme.add(new Post("cONTEN10","title9"));
-        deneme.add(new Post("cONTEN11","title10"));
-        deneme.add(new Post("cONTEN12","title11"));
-        deneme.add(new Post("cONTEN13","title12"));
-        deneme.add(new Post("cONTEN14","title13"));
-
-        deneme = new ArrayList<Post>();
-
-        ArrayList<String> ses = getUsers();
-
-
-
-        for(int i=0;i<users.size();i++){
-            deneme.add(new Post(users.get(i),"title"));
-
-        }
-
-        SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(deneme);
-        recycler_view.setHasFixedSize(true);
-        recycler_view.setAdapter(adapter_items);
-        recycler_view.setItemAnimator(new DefaultItemAnimator());
-        recycler_view.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                return false;
-            }
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-            }
-        });
+        getAllPosts();
 
 
     }
@@ -117,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
-    public void getAllUsers(){
+    public void getAllPosts(){
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_goster, null, new Response.Listener<JSONObject>() {
             @Override
@@ -128,13 +80,31 @@ public class HomeActivity extends AppCompatActivity {
                     for (int i=0; i<ogrenciler.length(); i++){
                         JSONObject ogrenci = ogrenciler.getJSONObject(i);
 
-                        String ad = ogrenci.getString("ad");
-                        String soyad = ogrenci.getString("soyad");
-                        String yas = ogrenci.getString("yas");
+                        String title = ogrenci.getString("Title");
+                        String content = ogrenci.getString("Content");
 
-                        users.add(ad + "-" + soyad + "-" + yas);
-                        textView.append(users.get(i));
+                        getDeneme().add(new Post(content, title));
                     }
+
+                    SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(deneme);
+                    recycler_view.setHasFixedSize(true);
+                    recycler_view.setAdapter(adapter_items);
+                    recycler_view.setItemAnimator(new DefaultItemAnimator());
+                    recycler_view.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+
+                        @Override
+                        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                            return false;
+                        }
+                        @Override
+                        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+                        }
+
+                        @Override
+                        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+                        }
+                    });
+
 
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -155,7 +125,6 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public ArrayList<String> getUsers(){
-        return this.users;
-    }
+    private List<Post> getDeneme(){return deneme;}
+
 }
