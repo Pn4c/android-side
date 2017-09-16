@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,72 +11,111 @@
 
     <Button
         android:id="@+id/btnReturnLoginpage"
-        android:text="@string/loginbutton"
-        android:background="#000000"
         android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="250dp"/>
+        android:layout_height="48dp"
+        android:background="#000000"
+        android:text="@string/loginbutton"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
 
     <EditText
-        android:textColorHint="#060606"
         android:id="@+id/etnewEmail"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/Email"
         android:inputType="textEmailAddress"
-        android:hint="E-Mail"
-        android:layout_marginTop="80dp" />
+        android:textColorHint="#060606"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnReturnLoginpage"
+        app:layout_constraintVertical_bias="0.14999998" />
 
     <EditText
-        android:textColorHint="#060606"
         android:id="@+id/etNickname"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nickname"
-        android:layout_marginTop="10dp"/>
+        android:hint="@string/NickName"
+        android:textColorHint="#060606"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/etnewEmail"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:textColorHint="#060606"
         android:id="@+id/etnewPassword"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="@string/Password"
         android:inputType="textPassword"
-        android:hint="Password"
-        android:layout_marginTop="10dp"/>
+        android:textColorHint="#060606"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/etNickname"
+        app:layout_constraintVertical_bias="0.0" />
+
     <EditText
         android:id="@+id/etnewRePassword"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="@string/RePassword"
         android:inputType="textPassword"
-        android:hint="Re-Password"
         android:textColorHint="#060606"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etnewPassword"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
         android:id="@+id/GenderSpinner"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:autofillHints="Gender"
-        android:background="#000000">
+        android:background="#000000"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/etnewRePassword"
+        app:layout_constraintVertical_bias="0.0">
 
     </Spinner>
 
     <EditText
         android:id="@+id/etnewAge"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Number"
+        android:hint="@string/Age"
         android:textColorHint="#060606"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/GenderSpinner"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnCreatenewuser"
-        android:text="Relax"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="90dp"/>
+        android:text="@string/Relax"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/etnewAge"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
