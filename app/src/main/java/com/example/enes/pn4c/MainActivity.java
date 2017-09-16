@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.enes.pn4c.JavaClasses.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnRegister,btnLogin;
     EditText etEmail,etPassword;
 
+    RequestQueue requestQueue;
+    String url_goster="http://10.0.2.2/egitim/getUsers.php";
+    private List<User> Users = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +42,56 @@ public class MainActivity extends AppCompatActivity {
         btnRegister = (Button)findViewById(R.id.btnSignUp);
         btnLogin = (Button)findViewById(R.id.btnLogin);
 
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent HomeIntent = new Intent(MainActivity.this,HomeActivity.class);
-                startActivity(HomeIntent);
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_goster, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray ogrenciler =response.getJSONArray("users");
+
+                            for (int i=0; i<ogrenciler.length(); i++){
+                                JSONObject ogrenci = ogrenciler.getJSONObject(i);
+
+                                String email = ogrenci.getString("Email");
+                                String nickName = ogrenci.getString("NickName");
+                                String gender = ogrenci.getString("Gender");
+                                String age = ogrenci.getString("Age");
+                                String password = ogrenci.getString("Password");
+                                String registerDate = ogrenci.getString("RegisterDate");
+
+                                getUsers().add(new User(email, nickName, gender, age, password, registerDate));
+                            }
+
+                            for(User u : Users){
+                                if (etEmail.getText().toString().equals(u.getEmail())  &&
+                                        etPassword.getText().toString().equals(u.getPassword())){
+
+                                    Intent home = new Intent(MainActivity.this,HomeActivity.class);
+                                    startActivity(home);
+
+                                }
+                            }
+
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+
+                    }
+                }
+                );
+
+                requestQueue.add(jsonObjectRequest);
 
             }
         });
@@ -65,11 +113,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
-
+    private List<User> getUsers(){return Users;}
 
 
 }

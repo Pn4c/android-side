@@ -19,9 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
 
-                        Map<String, String> parametreler = new HashMap<String, String>();
+                        Map<String, String> parametreler = new HashMap<>();
                         parametreler.put("Email", etnewuseremail.getText().toString());
                         parametreler.put("NickName", etnewusernickname.getText().toString());
                         parametreler.put("Gender", genderspinner.getSelectedItem().toString());
