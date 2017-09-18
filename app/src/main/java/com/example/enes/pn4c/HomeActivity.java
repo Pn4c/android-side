@@ -29,7 +29,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     private RecyclerView recycler_view;
-
+    private String data;
     private Toolbar HomeToolbar;
 
     private List<Post> Posts = new ArrayList<>();
@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         recycler_view.setLayoutManager(layoutManager);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-
+        data = "degisti";
         getAllPosts();
 
 
