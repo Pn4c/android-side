@@ -31,7 +31,6 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recycler_view;
 
     private Toolbar HomeToolbar;
-    private String heyo;
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
@@ -52,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         recycler_view.setLayoutManager(layoutManager);
 
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        heyo = "degisti";
+
         getAllPosts();
 
 
