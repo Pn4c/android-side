@@ -68,10 +68,9 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             for(User u : Users){
-                                if (etEmail.getText().toString().equals(u.getEmail())  &&
-                                        etPassword.getText().toString().equals(u.getPassword())){
-
-                                    Intent home = new Intent(MainActivity.this,HomeActivity.class);
+                                //if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
+                                if(true){
+                                    Intent home = new Intent(MainActivity.this,HomeAct.class);
                                     startActivity(home);
 
                                 }

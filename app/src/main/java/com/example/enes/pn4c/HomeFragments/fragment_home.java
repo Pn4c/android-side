@@ -1,4 +1,4 @@
-package com.example.enes.pn4c;
+package com.example.enes.pn4c.HomeFragments;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.enes.pn4c.JavaClasses.Post;
 import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
+import com.example.enes.pn4c.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class fragment_home extends AppCompatActivity {
 
     private RecyclerView recycler_view;
 
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.fragment_home);
 
         HomeToolbar = (Toolbar)findViewById(R.id.homeToolbar);
         setSupportActionBar(HomeToolbar);
