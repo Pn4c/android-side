@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent Search = new Intent(MainActivity.this,SearchpageActivity.class);
-                startActivity(Search);
+                Intent aa = new Intent(MainActivity.this,MyProfilePageActivity.class);
+                startActivity(aa);
             }
         });
 
