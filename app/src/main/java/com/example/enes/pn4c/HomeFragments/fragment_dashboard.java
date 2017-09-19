@@ -21,6 +21,7 @@ import com.example.enes.pn4c.JavaClasses.ImagePost;
 import com.example.enes.pn4c.JavaClasses.Post;
 import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
 import com.example.enes.pn4c.JavaClasses.TextPost;
+import com.example.enes.pn4c.JavaClasses.UserCollection;
 import com.example.enes.pn4c.R;
 import com.squareup.picasso.Picasso;
 
@@ -87,12 +88,12 @@ public class fragment_dashboard extends Fragment {
                         int type = ogrenci.getInt("Type");
 
                         String source = "http://185.16.237.199" + content.split(",")[0];
-
-                        if (type == 0) {
-                            getPosts().add(new TextPost(content, title, nickName, feeling));
-                        }
-                        else if (type == 1) {
-                            getPosts().add(new ImagePost(content, title, nickName, feeling, source));
+                        if (!UserCollection.getCurrentUser().getNickName().equals(nickName)) {
+                            if (type == 0) {
+                                getPosts().add(new TextPost(content, title, nickName, feeling));
+                            } else if (type == 1) {
+                                getPosts().add(new ImagePost(content, title, nickName, feeling, source));
+                            }
                         }
                     }
 

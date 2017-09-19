@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.enes.pn4c.JavaClasses.User;
+import com.example.enes.pn4c.JavaClasses.UserCollection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,10 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnRegister,btnLogin;
     EditText etEmail,etPassword;
-    String denemem;
 
     RequestQueue requestQueue;
-    String url_goster="http://10.0.2.2/egitim/getUsers.php";
+    String url_goster="http://185.16.237.199/egitim/getUsers.php";
     private List<User> Users = new ArrayList<>();
 
     @Override
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                             for(User u : Users){
                                 //if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
                                 if(true){
+                                    UserCollection.setCurrentUser(new User(u.getEmail(),"d0lph1n",u.getGender(),u.getAge(),u.getPassword(),u.getRegisterDate()));
                                     Intent home = new Intent(MainActivity.this,HomeAct.class);
                                     startActivity(home);
 

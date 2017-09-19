@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 
 import com.example.enes.pn4c.HomeFragments.fragment_dashboard;
 import com.example.enes.pn4c.HomeFragments.fragment_profile;
+import com.example.enes.pn4c.HomeFragments.fragment_relaxing;
+import com.example.enes.pn4c.JavaClasses.User;
 
 public class HomeAct extends AppCompatActivity {
 
@@ -142,10 +144,10 @@ public class HomeAct extends AppCompatActivity {
                     fragment_dashboard fme = new fragment_dashboard();
                     return fme;
                 case 1:
-                    fragment_profile fme2 = new fragment_profile();
+                    fragment_relaxing fme2 = new fragment_relaxing();
                     return fme2;
                 case 2:
-                    fragment_dashboard fme3 = new fragment_dashboard();
+                    fragment_profile fme3 = new fragment_profile();
                     return fme3;
             }
             return null;
