@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnRegister,btnLogin;
     EditText etEmail,etPassword;
+    String denemem;
 
     RequestQueue requestQueue;
     String url_goster="http://10.0.2.2/egitim/getUsers.php";
