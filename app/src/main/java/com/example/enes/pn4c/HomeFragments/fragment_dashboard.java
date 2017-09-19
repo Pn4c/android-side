@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,9 +17,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.enes.pn4c.JavaClasses.ImagePost;
 import com.example.enes.pn4c.JavaClasses.Post;
 import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
+import com.example.enes.pn4c.JavaClasses.TextPost;
 import com.example.enes.pn4c.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,7 +36,7 @@ import java.util.List;
  */
 
 public class fragment_dashboard extends Fragment {
-
+    public View rootView;
     private RecyclerView recycler_view;
 
     private List<Post> Posts = new ArrayList<>();
@@ -55,7 +58,7 @@ public class fragment_dashboard extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         recycler_view = (RecyclerView)rootView.findViewById(R.id.recycle_view_dashboard);
 
@@ -81,10 +84,17 @@ public class fragment_dashboard extends Fragment {
                         String content = ogrenci.getString("Content");
                         String nickName = ogrenci.getString("UserNickName");
                         String feeling = ogrenci.getString("Feeling");
+                        int type = ogrenci.getInt("Type");
 
-                        getPosts().add(new Post(content, title, nickName, feeling));
+                        String source = "http://185.16.237.199" + content.split(",")[0];
+
+                        if (type == 0) {
+                            getPosts().add(new TextPost(content, title, nickName, feeling));
+                        }
+                        else if (type == 1) {
+                            getPosts().add(new ImagePost(content, title, nickName, feeling, source));
+                        }
                     }
-
 
                     SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(Posts);
                     recycler_view.setHasFixedSize(true);

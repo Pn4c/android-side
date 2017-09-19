@@ -1,6 +1,7 @@
 package com.example.enes.pn4c.JavaClasses;
 
 import android.provider.ContactsContract;
+import android.widget.ImageView;
 
 /**
  * Created by Enes on 9/9/2017.
@@ -8,7 +9,9 @@ import android.provider.ContactsContract;
 
 public class ImagePost extends Post {
 
-    public ImagePost(String Content, String Title, String NickName, String Feeling) {
+    private ImageView imageView;
+
+    public ImagePost(String Content, String Title, String NickName, String Feeling, String Source) {
         super(Content, Title, NickName, Feeling);
     }
 }
