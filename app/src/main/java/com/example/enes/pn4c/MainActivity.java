@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.enes.pn4c.JavaClasses.User;
+import com.example.enes.pn4c.JavaClasses.UserCollection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                             for(User u : Users){
                                 //if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
                                 if(true){
+                                    //current user 'ı tanımlama, not:if condition true olduğu için veri tabanındaki ilk user bilgileri atanacak
+                                    UserCollection.setCurrentUser(new User(u.getEmail(),u.getNickName(),u.getGender(),u.getAge(),u.getPassword(),u.getRegisterDate()));
                                     Intent home = new Intent(MainActivity.this,HomeAct.class);
                                     startActivity(home);
 
