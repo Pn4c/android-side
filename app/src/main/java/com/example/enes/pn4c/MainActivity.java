@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etEmail,etPassword;
 
     RequestQueue requestQueue;
-    String url_goster="http://185.16.237.199/egitim/getUsers.php";
+    String url_goster="http://185.16.237.199/androidScripts/getUsers.php";
     private List<User> Users = new ArrayList<>();
 
     @Override

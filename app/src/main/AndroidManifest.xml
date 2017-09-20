@@ -21,7 +21,6 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeFragments.fragment_home" />
-        <activity android:name=".MyProfilePageActivity" />
         <activity android:name=".SearchpageActivity" />
         <activity android:name=".SettingsActivity" />
         <activity

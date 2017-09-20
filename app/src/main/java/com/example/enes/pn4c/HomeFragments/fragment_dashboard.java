@@ -42,7 +42,7 @@ public class fragment_dashboard extends Fragment {
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
-    String url_goster="http://185.16.237.199/egitim/ogrenciGoster.php";
+    String url_goster="http://185.16.237.199/androidScripts/getPosts.php";
 
     public void init(){
         LinearLayoutManager layoutManager = new LinearLayoutManager(fragment_dashboard.this.getContext());

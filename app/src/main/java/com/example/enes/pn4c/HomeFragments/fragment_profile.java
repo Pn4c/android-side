@@ -37,6 +37,7 @@ import java.util.List;
 
 public class fragment_profile extends Fragment {
 
+    public View rootView;
     private RecyclerView Profilerecycler_view;
 
     private Toolbar ProfileToolbar;
@@ -45,46 +46,25 @@ public class fragment_profile extends Fragment {
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
-    String url_goster="http://185.16.237.199/egitim/ogrenciGoster.php";
+    String url_goster="http://185.16.237.199/androidScripts/getPosts.php";
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_profile);
-
-        ProfileToolbar = (Toolbar)findViewById(R.id.myProfileToolbar);
-        setSupportActionBar(ProfileToolbar);
-
-        Profilerecycler_view= (RecyclerView)findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        layoutManager.scrollToPosition(0);
-        Profilerecycler_view.setLayoutManager(layoutManager);
-
-        requestQueue = Volley.newRequestQueue(getApplicationContext());
-
-        getAllPosts();
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
-        return true;
-    }
-
-
-    private List<Post> getPosts(){return Posts;}
-
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+        rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        Profilerecycler_view = (RecyclerView)rootView.findViewById(R.id.profilerecycler_view);
+
+        requestQueue = Volley.newRequestQueue(this.getContext());
 
         init();
 
         return rootView;
     }
+
+    private List<Post> getPosts(){return Posts;}
+
+    //get all posts from server
     public void getAllPosts() {
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_goster, null, new Response.Listener<JSONObject>() {
@@ -141,8 +121,16 @@ public class fragment_profile extends Fragment {
 
         requestQueue.add(jsonObjectRequest);
     }
-    public void init(){
 
+    public void init(){
+        LinearLayoutManager layoutManager = new LinearLayoutManager(fragment_profile.this.getContext());
+
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        layoutManager.scrollToPosition(0);
+
+        Profilerecycler_view.setLayoutManager(layoutManager);
+
+        getAllPosts();
 
     }
 
