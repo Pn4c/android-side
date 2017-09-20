@@ -42,6 +42,7 @@ public class fragment_profile extends Fragment {
 
     private Toolbar ProfileToolbar;
     public String degisiklik;
+    public String degisiklik2;
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
