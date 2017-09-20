@@ -14,8 +14,6 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white"
-
-
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

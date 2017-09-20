@@ -55,7 +55,6 @@ public class fragment_home extends AppCompatActivity {
 
         getAllPosts();
 
-
     }
 
     @Override
@@ -82,7 +81,6 @@ public class fragment_home extends AppCompatActivity {
 
                         getPosts().add(new Post(content, title, nickName, feeling));
                     }
-
 
                     SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(Posts);
                     recycler_view.setHasFixedSize(true);

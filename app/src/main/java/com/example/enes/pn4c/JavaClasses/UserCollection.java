@@ -22,6 +22,8 @@ import java.util.List;
  * Created by erama on 9/19/17.
  */
 
+//bu Classın amacı ne deneme amacıyla mı kullanacağız
+
 public class UserCollection {
 
     public static User currentUser;
