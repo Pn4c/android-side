@@ -114,7 +114,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 break;
         }
 
-        //Title renkleri ayarlama
+        //Title color selection
         try {
             holder.title.setBackgroundColor(Color.parseColor(colors.get(tryview.get(position).getFeeling())));
         }

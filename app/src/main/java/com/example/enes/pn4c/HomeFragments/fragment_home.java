@@ -35,7 +35,7 @@ public class fragment_home extends AppCompatActivity {
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
-    String url_goster="http://185.16.237.199/egitim/ogrenciGoster.php";
+    String url_goster="http://185.16.237.199/androidScripts/getPosts.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
