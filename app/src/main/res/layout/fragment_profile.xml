@@ -10,7 +10,10 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         ></android.support.v7.widget.Toolbar>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="alalalalallal"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/profilerecycler_view"
         android:layout_width="0dp"
