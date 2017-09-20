@@ -41,6 +41,7 @@ public class fragment_profile extends Fragment {
     private RecyclerView Profilerecycler_view;
 
     private Toolbar ProfileToolbar;
+    public String degisiklik;
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
