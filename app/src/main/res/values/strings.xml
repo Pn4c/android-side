@@ -7,6 +7,16 @@
         <item>Homosexual</item>
     </string-array>
 
+    <string-array name="array_feelings">
+        <item>Successful</item>
+        <item>Happy</item>
+        <item>Sad</item>
+        <item>Excited</item>
+        <item>Dead</item>
+        <item>Dissapointed</item>
+        <item>Lonely</item>
+    </string-array>
+
     <string name="Content">Content</string>
     <string name="NickName">NickName</string>
     <string name="Title">Title</string>
@@ -27,8 +37,5 @@
     <string name="AppLogo">AppLogo</string>
     <string name="title_activity_home">HomeAct</string>
     <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     Spinner genderspinner;
 
     RequestQueue requestQueue;
-    String url_kaydet="http://185.16.237.199/egitim/ogrenciKaydet.php";
+    String url_kaydet="http://185.16.237.199/androidScripts/registerUser.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
