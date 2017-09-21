@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.enes.pn4c.JavaClasses.Post;
 import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
+import com.example.enes.pn4c.JavaClasses.UserCollection;
 import com.example.enes.pn4c.R;
 
 import org.json.JSONArray;
@@ -79,7 +80,10 @@ public class fragment_profile extends Fragment {
                         String nickName = ogrenci.getString("UserNickName");
                         String feeling = ogrenci.getString("Feeling");
 
-                        getPosts().add(new Post(content, title, nickName, feeling));
+                        //if post's owner is current user then : 
+                        if (nickName.equals(UserCollection.getCurrentUser().getNickName())) {
+                            getPosts().add(new Post(content, title, nickName, feeling));
+                        }
                     }
 
                     SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(Posts);
