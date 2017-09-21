@@ -40,12 +40,10 @@ public class fragment_profile extends Fragment {
     public View rootView;
     private RecyclerView Profilerecycler_view;
 
-    private Toolbar ProfileToolbar;
-    public String degisiklik;
-    public String degisiklik2;
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
+
     String url_goster="http://185.16.237.199/androidScripts/getPosts.php";
 
     @Override
