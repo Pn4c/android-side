@@ -20,8 +20,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.enes.pn4c.JavaClasses.ImagePost;
 import com.example.enes.pn4c.JavaClasses.Post;
 import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
+import com.example.enes.pn4c.JavaClasses.TextPost;
 import com.example.enes.pn4c.JavaClasses.UserCollection;
 import com.example.enes.pn4c.R;
 
@@ -72,6 +74,9 @@ public class fragment_profile extends Fragment {
                 try {
                     JSONArray ogrenciler = response.getJSONArray("ogrenciler");
 
+                    //hindering to repeat posts again and again
+                    getPosts().removeAll(getPosts());
+
                     for (int i = 0; i < ogrenciler.length(); i++) {
                         JSONObject ogrenci = ogrenciler.getJSONObject(i);
 
@@ -79,10 +84,19 @@ public class fragment_profile extends Fragment {
                         String content = ogrenci.getString("Content");
                         String nickName = ogrenci.getString("UserNickName");
                         String feeling = ogrenci.getString("Feeling");
+                        int type = ogrenci.getInt("Type");
 
-                        //if post's owner is current user then : 
+                        //get post's image form server
+                        String source = "http://185.16.237.199" + content.split(",")[0];
+
+                        //if post's owner is current user then :
                         if (nickName.equals(UserCollection.getCurrentUser().getNickName())) {
-                            getPosts().add(new Post(content, title, nickName, feeling));
+                            //seperating imagepost and tectpost
+                            if (type == 0) {
+                                getPosts().add(new TextPost(content, title, nickName, feeling));
+                            } else if (type == 1) {
+                                getPosts().add(new ImagePost(content, title, nickName, feeling, source));
+                            }
                         }
                     }
 

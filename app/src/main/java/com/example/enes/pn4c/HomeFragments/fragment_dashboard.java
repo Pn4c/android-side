@@ -78,6 +78,9 @@ public class fragment_dashboard extends Fragment {
                 try {
                     JSONArray ogrenciler =response.getJSONArray("ogrenciler");
 
+                    //hindering to repeat posts again and again
+                    getPosts().removeAll(getPosts());
+
                     for (int i=0; i<ogrenciler.length(); i++){
                         JSONObject ogrenci = ogrenciler.getJSONObject(i);
 
@@ -87,8 +90,10 @@ public class fragment_dashboard extends Fragment {
                         String feeling = ogrenci.getString("Feeling");
                         int type = ogrenci.getInt("Type");
 
+                        //get post's image form server
                         String source = "http://185.16.237.199" + content.split(",")[0];
                         if (!UserCollection.getCurrentUser().getNickName().equals(nickName)) {
+                            //seperating imagepost and tectpost
                             if (type == 0) {
                                 getPosts().add(new TextPost(content, title, nickName, feeling));
                             } else if (type == 1) {
