@@ -3,8 +3,10 @@ package com.example.enes.pn4c.HomeFragments;
 
 import android.app.FragmentBreadCrumbs;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,12 +67,8 @@ public class fragment_profile extends Fragment {
 
         mTabHost.addTab(mTabHost.newTabSpec("Notes").setIndicator("Notes"),
                 fragment_note.class, null);
-
-
         requestQueue = Volley.newRequestQueue(this.getContext());
-
         init();
-
         return rootView;
     }
 
@@ -161,4 +159,8 @@ public class fragment_profile extends Fragment {
 
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 }

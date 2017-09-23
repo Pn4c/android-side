@@ -30,7 +30,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-
         android:ems="10"
         android:hint="@string/Email"
         android:text="@string/Email"

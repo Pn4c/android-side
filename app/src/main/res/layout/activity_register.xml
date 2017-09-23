@@ -108,7 +108,7 @@
 
     <Button
         android:id="@+id/btnCreatenewuser"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Relax"
         app:layout_constraintRight_toRightOf="parent"
