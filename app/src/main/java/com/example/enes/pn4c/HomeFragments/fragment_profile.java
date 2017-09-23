@@ -1,19 +1,18 @@
 package com.example.enes.pn4c.HomeFragments;
 
 
-import android.app.FragmentBreadCrumbs;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
 import android.view.LayoutInflater;
-import android.view.Menu;
+
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
