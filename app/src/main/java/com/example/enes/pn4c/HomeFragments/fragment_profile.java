@@ -1,8 +1,10 @@
 package com.example.enes.pn4c.HomeFragments;
 
 
+import android.app.FragmentBreadCrumbs;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,6 +42,8 @@ import java.util.List;
 
 public class fragment_profile extends Fragment {
 
+
+    private FragmentTabHost mTabHost;
     public View rootView;
     private RecyclerView Profilerecycler_view;
 
@@ -55,6 +59,13 @@ public class fragment_profile extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         Profilerecycler_view = (RecyclerView)rootView.findViewById(R.id.profilerecycler_view);
+
+        mTabHost = (FragmentTabHost)rootView.findViewById(android.R.id.tabhost);
+        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
+
+        mTabHost.addTab(mTabHost.newTabSpec("Notes").setIndicator("Notes"),
+                fragment_note.class, null);
+
 
         requestQueue = Volley.newRequestQueue(this.getContext());
 
