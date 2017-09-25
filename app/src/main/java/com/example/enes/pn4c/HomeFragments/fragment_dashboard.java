@@ -141,6 +141,6 @@ public class fragment_dashboard extends Fragment {
 
     }
 
-    private List<Post> getPosts(){return Posts;}
+    public List<Post> getPosts(){return Posts;}
 
 }

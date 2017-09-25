@@ -69,12 +69,8 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             for(User u : Users){
-                                //if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
-                                if(true){
-                                    //current user 'ı tanımlama, not:if condition true olduğu için veri tabanındaki ilk user bilgileri atanacak
-                                    //It is automatically assigned because of contolling application functions
-                                    //real-code:UserCollection.setCurrentUser(new User(u.getEmail(),u.getNickName(),u.getGender(),u.getAge(),u.getPassword(),u.getRegisterDate()));
-                                    UserCollection.setCurrentUser(new User("yozkose2@hotmail.com","dol2","Female","19","zxc","2017-09-01 15:30:26"));
+                                if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
+                                    UserCollection.setCurrentUser(new User(u.getEmail(),u.getNickName(),u.getGender(),u.getAge(),u.getPassword(),u.getRegisterDate()));
 
                                     Intent home = new Intent(MainActivity.this,HomeAct.class);
                                     startActivity(home);
