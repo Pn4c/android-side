@@ -12,6 +12,7 @@ public class Post {
     private String title;
     private String nickName;
     private String feeling;
+    //private boolean isPrivate;
 
     public Post(String Content,String Title, String nickName, String feeling)
     {

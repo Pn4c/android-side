@@ -40,8 +40,8 @@ public class UserCollection {
         return currentUser;
     }
 
-    public static void setCurrentUser(User currentUser) {
-        UserCollection.currentUser = currentUser;
+    public static void setCurrentUser(User currentuser) {
+       currentUser = currentuser;
     }
 
     public static User findUserByNickName(final String searchNickName) {

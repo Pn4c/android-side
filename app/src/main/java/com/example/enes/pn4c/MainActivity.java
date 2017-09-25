@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -70,11 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
                             for(User u : Users){
                                 if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
-                                    UserCollection.setCurrentUser(new User(u.getEmail(),u.getNickName(),u.getGender(),u.getAge(),u.getPassword(),u.getRegisterDate()));
-
+                                    UserCollection.setCurrentUser(u);
                                     Intent home = new Intent(MainActivity.this,HomeAct.class);
                                     startActivity(home);
 
+                                }
+                                else{
+                                    Toast toast = Toast.makeText(getApplicationContext(), "The entered password or e mail is wrong",Toast.LENGTH_SHORT);
+                                    toast.show();
                                 }
                             }
 

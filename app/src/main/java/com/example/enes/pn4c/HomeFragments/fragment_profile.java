@@ -62,11 +62,11 @@ public class fragment_profile extends Fragment {
         Profilerecycler_view = (RecyclerView)rootView.findViewById(R.id.profilerecycler_view);
 
         tvyournickname = (TextView)rootView.findViewById(R.id.tvNickname);
-        tvyournickname.setText(UserCollection.currentUser.getNickName());
+        //tvyournickname.setText(UserCollection.currentUser.getNickName());
         tvyourgender =(TextView)rootView.findViewById(R.id.tvGender);
-        tvyourgender.setText(UserCollection.currentUser.getGender());
+        //tvyourgender.setText(UserCollection.currentUser.getGender());
         tvyourage = (TextView)rootView.findViewById(R.id.tvAge);
-        tvyourage.setText(UserCollection.currentUser.getAge());
+        //tvyourage.setText(UserCollection.currentUser.getAge());
         requestQueue = Volley.newRequestQueue(this.getContext());
         init();
         return rootView;
