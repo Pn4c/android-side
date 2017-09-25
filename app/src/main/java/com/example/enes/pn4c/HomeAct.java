@@ -18,9 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.enes.pn4c.HomeFragments.fragment_dashboard;
+import com.example.enes.pn4c.HomeFragments.fragment_note;
 import com.example.enes.pn4c.HomeFragments.fragment_profile;
 import com.example.enes.pn4c.HomeFragments.fragment_relaxing;
-import com.example.enes.pn4c.JavaClasses.User;
 
 public class HomeAct extends AppCompatActivity {
 
@@ -67,7 +67,6 @@ public class HomeAct extends AppCompatActivity {
         });
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -149,14 +148,17 @@ public class HomeAct extends AppCompatActivity {
                 case 2:
                     fragment_profile fme3 = new fragment_profile();
                     return fme3;
+                case 3:
+                    fragment_note fme4 = new fragment_note();
+
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 4 total pages.
+            return 4;
         }
 
         @Override
@@ -168,6 +170,8 @@ public class HomeAct extends AppCompatActivity {
                     return "RELAXING";
                 case 2:
                     return "PROFILE";
+                case 3:
+                    return "NOTES";
             }
             return null;
         }

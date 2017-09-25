@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -44,7 +45,7 @@ import java.util.List;
 public class fragment_profile extends Fragment {
 
 
-    private FragmentTabHost mTabHost;
+    private TextView tvyournickname,tvyourage,tvyourgender;
     public View rootView;
     private RecyclerView Profilerecycler_view;
 
@@ -58,14 +59,14 @@ public class fragment_profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_profile, container, false);
-
         Profilerecycler_view = (RecyclerView)rootView.findViewById(R.id.profilerecycler_view);
 
-        mTabHost = (FragmentTabHost)rootView.findViewById(android.R.id.tabhost);
-        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.realtabcontent);
-
-        mTabHost.addTab(mTabHost.newTabSpec("Notes").setIndicator("Notes"),
-                fragment_note.class, null);
+        tvyournickname = (TextView)rootView.findViewById(R.id.tvNickname);
+        tvyournickname.setText(UserCollection.currentUser.getNickName());
+        tvyourgender =(TextView)rootView.findViewById(R.id.tvGender);
+        tvyourgender.setText(UserCollection.currentUser.getGender());
+        tvyourage = (TextView)rootView.findViewById(R.id.tvAge);
+        tvyourage.setText(UserCollection.currentUser.getAge());
         requestQueue = Volley.newRequestQueue(this.getContext());
         init();
         return rootView;

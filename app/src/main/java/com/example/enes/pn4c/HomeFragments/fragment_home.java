@@ -30,9 +30,7 @@ import java.util.List;
 public class fragment_home extends AppCompatActivity {
 
     private RecyclerView recycler_view;
-
     private Toolbar HomeToolbar;
-
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
     String url_goster="http://185.16.237.199/androidScripts/getPosts.php";

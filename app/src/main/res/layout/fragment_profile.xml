@@ -5,31 +5,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v4.app.FragmentTabHost
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@android:id/tabhost"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <FrameLayout
-                android:id="@+id/realtabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-    </android.support.v4.app.FragmentTabHost>
 
     <TextView
         android:id="@+id/tvNickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NickName"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
@@ -37,7 +17,6 @@
         android:id="@+id/tvAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Age"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +28,6 @@
         android:id="@+id/tvGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gender"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,7 +38,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ANY PERSONAL FEATURE"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
