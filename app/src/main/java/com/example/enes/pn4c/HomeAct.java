@@ -150,7 +150,7 @@ public class HomeAct extends AppCompatActivity {
                     return fme3;
                 case 3:
                     fragment_note fme4 = new fragment_note();
-
+                    return fme4;
             }
             return null;
         }
@@ -158,7 +158,7 @@ public class HomeAct extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 4 total pages.
-            return 4;
+            return 3;
         }
 
         @Override

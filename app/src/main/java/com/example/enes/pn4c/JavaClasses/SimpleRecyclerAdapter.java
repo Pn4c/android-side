@@ -60,10 +60,6 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 view = View.inflate(parent.getContext(), R.layout.myviewlayout2, null);
                 viewHolder = new ViewHolder(view);
                 break;
-            case 1:
-                view = View.inflate(parent.getContext(), R.layout.myviewlayout2, null);
-                viewHolder = new ViewHolder(view);
-                break;
         }
         return viewHolder;
 
@@ -79,6 +75,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         colors.put("Excited","#FFB036");
         colors.put("Sad","#656990");
         colors.put("Happy","#FAFF52");
+        colors.put("Bored","#FAFF52");
 
         holder.title.setText(tryview.get(position).getTitle());
         holder.nickName.setText(tryview.get(position).getNickName());

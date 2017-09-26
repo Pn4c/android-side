@@ -22,13 +22,13 @@ import java.util.List;
  * Created by erama on 9/19/17.
  */
 
-//bu Classın amacı ne deneme amacıyla mı kullanacağız
+//bu Classın amacı current user'ı tutmak ve user la ilgili diğer fonksiyonları tutmak
 
 public class UserCollection {
 
     public static User currentUser;
 
-    String url_goster="http://183.16.237.199/egitim/getUsers.php";
+    String url_goster="http://183.16.237.199/androidScripts/getUsers.php";
 
     public UserCollection(){
 

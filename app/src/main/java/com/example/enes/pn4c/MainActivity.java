@@ -69,17 +69,24 @@ public class MainActivity extends AppCompatActivity {
                                 getUsers().add(new User(email, nickName, gender, age, password, registerDate));
                             }
 
+                            //check if user is exits and, pass and email are correct
+                            Boolean isLogged = false;
                             for(User u : Users){
-                                if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())){
+                                if (etEmail.getText().toString().equals(u.getEmail())  && etPassword.getText().toString().equals(u.getPassword())) {
                                     UserCollection.setCurrentUser(u);
-                                    Intent home = new Intent(MainActivity.this,HomeAct.class);
-                                    startActivity(home);
+                                    isLogged = true;
+                                    break;
+                                }
+                            }
 
-                                }
-                                else{
-                                    Toast toast = Toast.makeText(getApplicationContext(), "The entered password or e mail is wrong",Toast.LENGTH_SHORT);
-                                    toast.show();
-                                }
+                            if(isLogged){
+                                Intent home = new Intent(MainActivity.this,HomeAct.class);
+                                startActivity(home);
+
+                            }
+                            else{
+                                Toast toast = Toast.makeText(getApplicationContext(), "The entered password or e mail is wrong",Toast.LENGTH_SHORT);
+                                toast.show();
                             }
 
                         }catch (JSONException e){

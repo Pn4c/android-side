@@ -5,11 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,7 +24,6 @@ import com.example.enes.pn4c.JavaClasses.SimpleRecyclerAdapter;
 import com.example.enes.pn4c.JavaClasses.TextPost;
 import com.example.enes.pn4c.JavaClasses.UserCollection;
 import com.example.enes.pn4c.R;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +38,9 @@ import java.util.List;
 
 public class fragment_dashboard extends Fragment {
     public View rootView;
-    private RecyclerView recycler_view;
+    public RecyclerView recycler_view;
+
+    TextView textView;
 
     private List<Post> Posts = new ArrayList<>();
     RequestQueue requestQueue;
@@ -51,6 +53,8 @@ public class fragment_dashboard extends Fragment {
         layoutManager.scrollToPosition(0);
 
         recycler_view.setLayoutManager(layoutManager);
+
+        textView = (TextView)rootView.findViewById(R.id.textView2);
 
         getAllPosts();
 
@@ -71,10 +75,11 @@ public class fragment_dashboard extends Fragment {
     }
 
     public void getAllPosts(){
-
+        textView.append(UserCollection.getCurrentUser().getNickName());
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url_goster, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 try {
                     JSONArray ogrenciler =response.getJSONArray("ogrenciler");
 
@@ -96,6 +101,7 @@ public class fragment_dashboard extends Fragment {
                             //seperating imagepost and tectpost
                             if (type == 0) {
                                 getPosts().add(new TextPost(content, title, nickName, feeling));
+                                textView.append(nickName);
                             } else if (type == 1) {
                                 getPosts().add(new ImagePost(content, title, nickName, feeling, source));
                             }
@@ -131,6 +137,7 @@ public class fragment_dashboard extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // TODO Auto-generated method stub
+                Log.d("ERROR IN THE VOLLEY", error.getMessage());
 
             }
         }
