@@ -72,12 +72,11 @@ public class fragment_home extends AppCompatActivity {
                     for (int i=0; i<ogrenciler.length(); i++){
                         JSONObject ogrenci = ogrenciler.getJSONObject(i);
 
-                        String title = ogrenci.getString("Title");
                         String content = ogrenci.getString("Content");
                         String nickName = ogrenci.getString("UserNickName");
                         String feeling = ogrenci.getString("Feeling");
 
-                        getPosts().add(new Post(content, title, nickName, feeling));
+                        getPosts().add(new Post(content, nickName, feeling));
                     }
 
                     SimpleRecyclerAdapter adapter_items = new SimpleRecyclerAdapter(Posts);

@@ -100,10 +100,10 @@ public class fragment_dashboard extends Fragment {
                         if (!UserCollection.getCurrentUser().getNickName().equals(nickName)) {
                             //seperating imagepost and tectpost
                             if (type == 0) {
-                                getPosts().add(new TextPost(content, title, nickName, feeling));
+                                getPosts().add(new TextPost(content, nickName, feeling));
                                 textView.append(nickName);
                             } else if (type == 1) {
-                                getPosts().add(new ImagePost(content, title, nickName, feeling, source));
+                                getPosts().add(new ImagePost(content, nickName, feeling, source));
                             }
                         }
                     }

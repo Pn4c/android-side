@@ -16,21 +16,6 @@
             android:layout_height="match_parent"
             android:padding="16dp">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/content"
-                android:layout_marginTop="8dp"
-                android:layout_toEndOf="@+id/content"
-                android:paddingBottom="8dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="8dp"
-                android:text="@string/Title"
-                android:textColor="@color/cardview_dark_background"
-                android:textSize="15sp"
-                />
 
             <TextView
                 android:id="@+id/nickName"

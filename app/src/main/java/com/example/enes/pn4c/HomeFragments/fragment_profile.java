@@ -93,7 +93,6 @@ public class fragment_profile extends Fragment {
                     for (int i = 0; i < ogrenciler.length(); i++) {
                         JSONObject ogrenci = ogrenciler.getJSONObject(i);
 
-                        String title = ogrenci.getString("Title");
                         String content = ogrenci.getString("Content");
                         String nickName = ogrenci.getString("UserNickName");
                         String feeling = ogrenci.getString("Feeling");
@@ -106,9 +105,9 @@ public class fragment_profile extends Fragment {
                         if (nickName.equals(UserCollection.getCurrentUser().getNickName())) {
                             //seperating imagepost and tectpost
                             if (type == 0) {
-                                getPosts().add(new TextPost(content, title, nickName, feeling));
+                                getPosts().add(new TextPost(content, nickName, feeling));
                             } else if (type == 1) {
-                                getPosts().add(new ImagePost(content, title, nickName, feeling, source));
+                                getPosts().add(new ImagePost(content, nickName, feeling, source));
                             }
                         }
                     }

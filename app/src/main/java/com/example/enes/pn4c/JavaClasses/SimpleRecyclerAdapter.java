@@ -27,7 +27,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView content;
-        public TextView title;
+        //public TextView title;
         public TextView nickName;
         public CardView card_view;
         public ImageView imageSource;
@@ -37,7 +37,6 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
             card_view = view.findViewById(R.id.card_view);
             content = view.findViewById(R.id.content);
-            title = view.findViewById(R.id.title);
             nickName = view.findViewById(R.id.nickName);
             imageSource = view.findViewById(R.id.image_post);
 
@@ -77,7 +76,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         colors.put("Happy","#FAFF52");
         colors.put("Bored","#FAFF52");
 
-        holder.title.setText(tryview.get(position).getTitle());
+
         holder.nickName.setText(tryview.get(position).getNickName());
         String [] content_array = tryview.get(position).getContent().split(",");
 
@@ -111,13 +110,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
                 break;
         }
 
-        //Title color selection
-        try {
-            holder.title.setBackgroundColor(Color.parseColor(colors.get(tryview.get(position).getFeeling())));
-        }
-        catch (NullPointerException e){
 
-        }
 
     }
 

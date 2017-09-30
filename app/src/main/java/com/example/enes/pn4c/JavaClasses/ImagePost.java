@@ -11,7 +11,7 @@ public class ImagePost extends Post {
 
     private ImageView imageView;
 
-    public ImagePost(String Content, String Title, String NickName, String Feeling, String Source) {
-        super(Content, Title, NickName, Feeling);
+    public ImagePost(String Content, String NickName, String Feeling, String Source) {
+        super(Content, NickName, Feeling);
     }
 }

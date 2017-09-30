@@ -6,7 +6,7 @@ package com.example.enes.pn4c.JavaClasses;
 
 public class TextPost extends Post {
 
-    public TextPost(String Content, String Title, String NickName, String Feeling) {
-        super(Content, Title, NickName, Feeling);
+    public TextPost(String Content, String NickName, String Feeling) {
+        super(Content, NickName, Feeling);
     }
 }
